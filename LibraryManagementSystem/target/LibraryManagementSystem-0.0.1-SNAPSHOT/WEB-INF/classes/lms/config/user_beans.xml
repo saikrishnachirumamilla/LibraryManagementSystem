@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    <context:component-scan base-package="com.library.management.system" />
+    <context:annotation-config />
+    <bean id="searchService" class="com.library.management.system.service.SearchServiceImpl" />
+    <bean id="searchDao" class="com.library.management.system.dao.SearchDaoImpl" />
+    <bean id="borrowerService" class="com.library.management.system.service.BorrowerServiceImpl" />
+    <bean id="borrowerDao" class="com.library.management.system.dao.BorrowerDaoImpl" />
+    <bean id="checkOutService" class="com.library.management.system.service.CheckOutServiceImpl" />
+    <bean id="checkOutDao" class="com.library.management.system.dao.CheckOutDaoImpl" />
+    <bean id="checkInService" class="com.library.management.system.service.CheckInServiceImpl" />
+    <bean id="checkInDao" class="com.library.management.system.dao.CheckInDaoImpl" />
+    <bean id="finesService" class="com.library.management.system.service.FinesServiceImpl" />
+    <bean id="finesDao" class="com.library.management.system.dao.FinesDaoImpl" />
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="datasource" />
+    </bean>
+    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost/lms?serverTimezone=America/Chicago" />
+        <property name="username" value="root" />
+        <property name="password" value="Krishna2410$" />
+    </bean>
+</beans>
